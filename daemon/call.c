@@ -226,7 +226,7 @@ no_sfd:
 
 		check = atomic_get_na(&rtpe_config.timeout_us);
 		tmp_t_reason = TIMEOUT;
-		if (!MEDIA_ISSET(ps->media, RECV) || !sfd) {
+		if ((!MEDIA_ISSET(ps->media, RECV) && !MEDIA_ISSET(ps->media, SEND)) || !sfd) {
 			check = atomic_get_na(&rtpe_config.silent_timeout_us);
 			tmp_t_reason = SILENT_TIMEOUT;
 		}
